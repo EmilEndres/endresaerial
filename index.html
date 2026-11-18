@@ -141,7 +141,8 @@ nav.main .btn { padding: 9px 16px; }
 /* Recent work gallery: each figure removes itself if its photo is missing */
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
 .gallery figure { margin: 0; background: var(--sheet); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: grid; }
-.gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.gallery figure.fit img { object-fit: contain; background: #0f1b24; }
 .gallery figcaption { padding: 12px 14px; display: grid; gap: 2px; }
 .gallery figcaption strong { font-size: 1rem; }
 .gallery figcaption span { color: var(--muted); font-size: 0.92rem; }
@@ -282,8 +283,8 @@ footer.site .wrap { padding-top: 22px; padding-bottom: 28px; display: flex; flex
       </div>
 
       <figure class="hero-map" aria-label="Illustration of fen fields mapped from above with a drone flight grid">
-        <!-- EDIT: put your own drone photo at images/hero.jpg (landscape, about 1600px wide). Until then the illustration shows. -->
-        <img class="hero-photo" src="images/hero.jpg" alt="Drone view of a roof and surrounding land captured by Endres Aerial" onload="this.parentNode.classList.add('photo-ok')" onerror="this.remove()">
+        
+        <img class="hero-photo" src="images/hero.jpg" alt="Aerial view of a farmhouse, barns, ponds and fields" onload="this.parentNode.classList.add('photo-ok')" onerror="this.remove()">
         <svg class="hero-illustration" viewBox="0 0 480 340" role="img" aria-label="Fields from above with a survey flight path">
           <rect width="480" height="340" fill="#e6ebe2"/>
           <!-- field strips -->
@@ -324,7 +325,7 @@ footer.site .wrap { padding-top: 22px; padding-bottom: 28px; display: flex; flex
         </svg>
         <figcaption class="caption">
           <span class="label">52.3995° N, 0.2624° E</span>
-          <span class="label">Roof orbit · Mapping grid</span>
+          <span class="label">Roofs · Land · Crops</span>
         </figcaption>
       </figure>
     </div>
@@ -411,21 +412,22 @@ footer.site .wrap { padding-top: 22px; padding-bottom: 28px; display: flex; flex
   <section class="section" id="work">
     <div class="wrap">
       <div class="section-head">
-        <span class="label">Recent work</span>
-        <h2>See what you get</h2>
-        <p>Examples from real jobs: close-up roof photos, 3D roof models, aerial maps and crop and field maps.</p>
+        <span class="label">Gallery</span>
+        <h2>From the air</h2>
       </div>
-      <!-- EDIT: add your own images in an "images" folder next to this file, using these names.
-           Any image that is missing is hidden automatically, and the whole section hides if none exist. -->
       <div class="gallery">
-        <figure><img src="images/roof-closeup.jpg" alt="Close-up drone photo of roof slates and flashing" loading="lazy" onerror="this.parentNode.remove()">
-          <figcaption><strong>Roof close-up</strong><span>Slipped slates and flashing, photographed from the air</span></figcaption></figure>
-        <figure><img src="images/roof-3d-model.jpg" alt="3D model of a house roof built from drone photos" loading="lazy" onerror="this.parentNode.remove()">
-          <figcaption><strong>3D roof model</strong><span>Measured roof slopes for roofers' quotes</span></figcaption></figure>
-        <figure><img src="images/site-orthomosaic.jpg" alt="Aerial map of a site stitched from drone photos" loading="lazy" onerror="this.parentNode.remove()">
-          <figcaption><strong>Site map</strong><span>High-resolution orthomosaic of land or a building site</span></figcaption></figure>
-        <figure><img src="images/crop-ndvi.jpg" alt="NDVI crop health map of a field" loading="lazy" onerror="this.parentNode.remove()">
-          <figcaption><strong>Crop health map</strong><span>NDVI map showing stressed and thin areas</span></figcaption></figure>
+        <figure><img src="images/roof-1.jpg" alt="Close view of a clay tile roof, ridge and chimney" loading="lazy" onerror="this.parentNode.remove()">
+          <figcaption><strong>Roof close-ups</strong><span>Tiles, ridge, chimney and flashing</span></figcaption></figure>
+        <figure><img src="images/roof-2.jpg" alt="Slate roof with a slipped slate beside a chimney" loading="lazy" onerror="this.parentNode.remove()">
+          <figcaption><strong>Spotting defects</strong><span>Slipped and missing slates</span></figcaption></figure>
+        <figure><img src="images/roof-3.jpg" alt="Slate roof, chimney flashing and gutter" loading="lazy" onerror="this.parentNode.remove()">
+          <figcaption><strong>Flashing and gutters</strong><span>The hard-to-reach details</span></figcaption></figure>
+        <figure><img src="images/roof-4.jpg" alt="Plain clay tile roof with moss along the ridge" loading="lazy" onerror="this.parentNode.remove()">
+          <figcaption><strong>Ridge and moss</strong><span>Wear that's invisible from the ground</span></figcaption></figure>
+        <figure><img src="images/farm-1.jpg" alt="Aerial view of a farmhouse, barns and fields" loading="lazy" onerror="this.parentNode.remove()">
+          <figcaption><strong>Farm and land aerials</strong><span>For sales, planning and records</span></figcaption></figure>
+        <figure class="fit"><a href="images/crop-map.jpg" target="_blank" rel="noopener"><img src="images/crop-map.jpg" alt="Example crop map showing healthy crop, lower vigour, gaps and waterlogged areas" loading="lazy" onerror="this.closest('figure').remove()"></a>
+          <figcaption><strong>Crop &amp; field maps</strong><span>Example map: crop health, gaps and waterlogging</span></figcaption></figure>
       </div>
     </div>
   </section>
